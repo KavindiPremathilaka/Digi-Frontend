@@ -1,0 +1,77 @@
+.customize-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f7e2f7 0%, #c889b6 100%); /* Gradient background */
+    padding: 20px;
+    font-family: 'Segoe UI', 'Arial', sans-serif; /* Updated font */
+  }
+  
+  .customize-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .customize-header h1 {
+    color: #c2185b;
+    font-size: 2.5rem; /* Larger title */
+    margin-bottom: 10px;
+  }
+  
+  .customize-header p {
+    color: #5a375a; /* Darker text */
+    font-size: 1.2rem;
+  }
+  
+  .customize-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger cards */
+    gap: 30px; /* Increased gap */
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .option-card {
+    background-color: #fff;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .option-card:hover {
+    transform: translateY(-8px); /* Lift effect */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+  }
+  
+  .option-card h2 {
+    color: #333;
+    font-size: 1.6rem; /* Larger heading */
+    margin-bottom: 15px;
+  }
+  
+  .option-card p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+  
+  .customize-button {
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 24px; /* More rounded button */
+    padding: 12px 28px; /* Adjusted padding */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .customize-button:hover {
+    background-color: #9a0036;
+    transform: scale(1.05); /* Button enlargement on hover */
+  }
+  

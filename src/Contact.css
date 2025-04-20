@@ -1,0 +1,115 @@
+.contact-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #f7e2f7;
+    border-radius: 10px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  
+  .contact-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .contact-header h1 {
+    color: #c2185b;
+    margin-bottom: 10px;
+  }
+  
+  .contact-header p {
+    color: #444;
+    font-size: 1.1rem;
+  }
+  
+  .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+  
+  .contact-form {
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+  }
+  
+  .contact-form label {
+    font-weight: 500;
+    color: #222;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #bdbdbd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f2ecec;
+    color: #222;
+    transition: border-color 0.2s;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #c2185b;
+  }
+  
+  .contact-submit {
+    margin-top: 10px;
+    background: #c2185b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .contact-submit:hover {
+    background: #9a0036;
+  }
+  
+  .contact-info {
+    flex: 1 1 220px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+    color: #333;
+    min-width: 220px;
+  }
+  
+  .contact-info h2 {
+    color: #c2185b;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+  
+  .contact-socials {
+    margin-top: 18px;
+  }
+  
+  .contact-socials a {
+    color: #c2185b;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .contact-socials a:hover {
+    text-decoration: underline;
+  }
+  

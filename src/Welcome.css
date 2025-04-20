@@ -1,0 +1,180 @@
+/* Welcome.css */
+.welcome-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f7e2f7 0%, #c889b6 100%);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+  }
+  
+  .welcome-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 60px 0 60px;
+    background: transparent;
+  }
+  
+  .welcome-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #c2185b;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .welcome-navlinks button {
+    background: none;
+    border: none;
+    color: #c2185b;
+    font-size: 1.1rem;
+    margin-left: 28px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .welcome-navlinks .nav-login {
+    background: #c2185b;
+    color: #fff;
+    border-radius: 18px;
+    padding: 7px 22px;
+    margin-left: 34px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background 0.2s;
+  }
+  .welcome-navlinks .nav-login:hover,
+  .welcome-navlinks button:hover {
+    color: #9a0036;
+    background: #f7e2f7;
+  }
+  
+  .welcome-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 60px 60px 0 60px;
+    gap: 60px;
+  }
+  
+  .welcome-textblock {
+    max-width: 480px;
+    animation: fadeInLeft 1s;
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-60px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+  
+  .welcome-textblock h1 {
+    font-size: 3.1rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    line-height: 1.1;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(90deg, #c2185b 30%, #f8a7e3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .welcome-textblock p {
+    font-size: 1.25rem;
+    color: #5a375a;
+    margin-bottom: 32px;
+  }
+  
+  .welcome-cta {
+    display: flex;
+    gap: 18px;
+  }
+  
+  .cta-main {
+    background: #c2185b;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 13px 38px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s;
+  }
+  .cta-main:hover {
+    background: #9a0036;
+  }
+  
+  .cta-secondary {
+    background: #fff;
+    color: #c2185b;
+    border: 2px solid #c2185b;
+    border-radius: 24px;
+    padding: 13px 32px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cta-secondary:hover {
+    background: #f8a7e3;
+    color: #9a0036;
+  }
+  
+  .welcome-illustration img {
+    width: 200px;
+    max-width: 40vw;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(200,137,182,0.12);
+    animation: fadeInRight 1.2s;
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(60px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+  
+  .welcome-features {
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+    margin: 60px 0 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  .feature-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px 28px;
+    min-width: 220px;
+    max-width: 270px;
+    text-align: center;
+    animation: fadeInUp 1.1s;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  
+  .feature-card span {
+    font-size: 2.3rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .feature-card h3 {
+    color: #c2185b;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    color: #5a375a;
+    font-size: 1rem;
+  }
+  
