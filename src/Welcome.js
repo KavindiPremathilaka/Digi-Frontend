@@ -10,7 +10,7 @@ function Welcome() {
     <div className="welcome-hero">
       <nav className="welcome-navbar">
         <div className="welcome-logo">
-          <span role="img" aria-label="gift">🎁</span> DigiGiftz
+         
         </div>
         <div className="welcome-navlinks">
           <button onClick={() => navigate("/shop")}>Shop</button>

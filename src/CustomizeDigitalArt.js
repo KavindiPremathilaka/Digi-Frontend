@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CustomizeDigitalArt.css";
 
-function CustomizeDigitalArt() {
+function CustomizeDigitalArt({ addToCart }) {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
   const [showQuantity, setShowQuantity] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const itemPrice = 4500;  // Price for the digital art
 
   const digitalArtOptions = [
     { id: 1, name: "Abstract Art", image: "/images/abstract-art.jpg" },
@@ -37,15 +38,13 @@ function CustomizeDigitalArt() {
   const handleAddToCart = () => {
     // Simulate digital art as a product
     const cartItem = {
-      id: Date.now(), // unique id
+      id: Date.now(),  // Unique ID for the cart item
       name: "Custom Digital Art",
-      image: selectedImage,
-      price: 30, // example price
-      quantity: quantity,
+      image: selectedImage,  //  image
+      price: itemPrice,  // item price
+      quantity: quantity,  // quantity
     };
-    let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    cartItems.push(cartItem);
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    addToCart(cartItem);
     navigate("/cart");
   };
 
@@ -85,8 +84,9 @@ function CustomizeDigitalArt() {
         </button>
       ) : (
         <div className="add-to-cart-section">
+          <p>Price: Rs. {itemPrice}</p> {/* Display the price */}
           <label>
-            Quantity:{" "}
+            Quantity:
             <input
               type="number"
               min="1"

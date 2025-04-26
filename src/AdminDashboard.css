@@ -1,0 +1,48 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .admin-dashboard h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-section {
+    margin-bottom: 40px;
+  }
+  
+  .dashboard-section h2 {
+    color: #1976d2;
+    margin-bottom: 16px;
+  }
+  
+  .order-card {
+    background: #fff;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .order-card p {
+    margin: 6px 0;
+    color: #444;
+  }
+  
+  .order-card ul {
+    margin-top: 12px;
+    padding-left: 20px;
+  }
+  
+  .order-card li {
+    color: #333;
+    margin-bottom: 4px;
+  }
+  

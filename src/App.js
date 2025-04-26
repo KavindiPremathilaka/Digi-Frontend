@@ -1,5 +1,4 @@
-// App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,10 +13,15 @@ import Contact from "./Contact";
 import ItemDetails from "./ItemDetails";
 import CategoryItems from "./CategoryItems";
 import Cart from "./Cart";
-import RegistrationForm from "./RegistrationForm"; // Import RegistrationForm
-import CustomizableItems from "./CustomizableItems"; // Import CustomizableItems
+import RegistrationForm from "./RegistrationForm";
+import CustomizableItems from "./CustomizableItems";
 import CustomizeDigitalArt from "./CustomizeDigitalArt";
-import ForgotPasswordForm from "./ForgotPasswordForm";  // Import ForgotPasswordForm
+import ForgotPasswordForm from "./ForgotPasswordForm";
+import Profile from "./Profile";
+import Navbar from "./Navbar";
+import MyOrders from "./MyOrders";
+import AdminDashboard from "./AdminDashboard";
+import FeedbackForm from "./FeedbackForm";
 import "./App.css";
 
 function App() {
@@ -97,21 +101,29 @@ function App() {
         {
           id: 401,
           name: "Small Gift Set",
-          price: "3000/=",
+          price: 3000,
           image: "/images/small-giftset.jpg",
           description: "A curated gift set for any occasion.",
         },
         {
           id: 402,
           name: "Budget Bouquet",
-          price: "3500/=",
+          price: 3500,
           image: "/images/budget-bouquet.jpg",
           description: "A beautiful bouquet that fits your budget.",
         },
       ],
     },
   ];
-  const [cartItems, setCartItems] = useState([]);
+
+  const [cartItems, setCartItems] = useState(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const getItemById = (itemId) => {
     for (const category of categories) {
@@ -124,29 +136,44 @@ function App() {
   };
 
   const getCategoryById = (categoryId) => {
-    return categories.find(category => category.id === parseInt(categoryId));
+    return categories.find((category) => category.id === parseInt(categoryId));
   };
 
   const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+    setCartItems((prevItems) => {
+      const existingItemIndex = prevItems.findIndex((cartItem) => cartItem.id === item.id);
+
+      if (existingItemIndex !== -1) {
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex].quantity = (updatedItems[existingItemIndex].quantity || 0) + (item.quantity || 1);
+        return updatedItems;
+      } else {
+        return [...prevItems, { ...item, quantity: item.quantity || 1 }];
+      }
+    });
   };
 
   const removeFromCart = (itemId) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== itemId)
-    );
+    setCartItems((prevItems) => {
+      return prevItems.filter((item) => item.id !== itemId);
+    });
   };
 
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<RegistrationForm />} /> {/* Add registration route */}
+        <Route path="/register" element={<RegistrationForm />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/categories" element={<Categories categories={categories} />} />
         <Route path="/customize" element={<Customize />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/myOrders" element={<MyOrders />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/feedback" element={<FeedbackForm />} />
         <Route
           path="/category/:categoryId"
           element={<CategoryItems getCategoryById={getCategoryById} addToCart={addToCart} />}
@@ -157,19 +184,17 @@ function App() {
         />
         <Route
           path="/cart"
-          element={<Cart
-            cartItems={cartItems}
-            removeFromCart={removeFromCart} />}
+          element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />}
         />
-           <Route
-              path="/customize/:giftType"
-              element={<CustomizableItems />}
-          />
-           <Route
-              path="/customize/digital-art"
-              element={<CustomizeDigitalArt />}
-           />
-           <Route path="/forgot-password" element={<ForgotPasswordForm />} /> {/* Add forgot password route */}
+        <Route
+          path="/customize/:giftType"
+          element={<CustomizableItems addToCart={addToCart} />}
+        />
+        <Route
+          path="/customize/digital-art"
+          element={<CustomizeDigitalArt addToCart={addToCart} />}
+        />
+        <Route path="/forgot-password" element={<ForgotPasswordForm />} />
       </Routes>
     </Router>
   );
